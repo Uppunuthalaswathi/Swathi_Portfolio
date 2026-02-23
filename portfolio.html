@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uppunuthala Swathi | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <!-- <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script> -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+        * { font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #2dd4bf, #f472b6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-btn {
+            background: linear-gradient(135deg, #2dd4bf, #f472b6);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(45, 212, 191, 0.3);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(45, 212, 191, 0.15);
+            border-color: rgba(45, 212, 191, 0.3);
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-30px) translateX(10px); opacity: 0.6; }
+            50% { transform: translateY(-20px) translateX(-10px); opacity: 0.4; }
+            75% { transform: translateY(-40px) translateX(15px); opacity: 0.5; }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+        
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .nav-pill {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-pill:hover, .nav-pill.active {
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.2), rgba(244, 114, 182, 0.2));
+        }
+        
+        .skill-pill {
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.15), rgba(244, 114, 182, 0.15));
+            border: 1px solid rgba(45, 212, 191, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .skill-pill:hover {
+            background: linear-gradient(135deg, rgba(45, 212, 191, 0.3), rgba(244, 114, 182, 0.3));
+            transform: scale(1.05);
+        }
+        
+        .scroll-top-btn {
+            background: linear-gradient(135deg, #2dd4bf, #f472b6);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(45, 212, 191, 0.4);
+        }
+        
+        input, textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #2dd4bf;
+            box-shadow: 0 0 20px rgba(45, 212, 191, 0.2);
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(37, 211, 102, 0.3);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px rgba(45, 212, 191, 0.5));
+        }
+    </style>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full bg-gradient-to-br from-[#0f172a] to-[#1e293b] text-[#e2e8f0] overflow-auto"><!-- Particle Background -->
+  <div id="particles" class="fixed inset-0 pointer-events-none overflow-hidden"></div><!-- Navigation -->
+  <nav id="navbar" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 glass-card rounded-full px-2 py-2 flex gap-1"><a href="#hero" class="nav-pill px-4 py-2 rounded-full text-sm font-medium">Home</a> <a href="#about" class="nav-pill px-4 py-2 rounded-full text-sm font-medium">About</a> <a href="#skills" class="nav-pill px-4 py-2 rounded-full text-sm font-medium">Skills</a> <a href="#projects" class="nav-pill px-4 py-2 rounded-full text-sm font-medium">Projects</a> <a href="#blog" class="nav-pill px-4 py-2 rounded-full text-sm font-medium">Blog</a> <a href="#contact" class="nav-pill px-4 py-2 rounded-full text-sm font-medium">Contact</a>
+  </nav><!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center px-6 py-24 relative">
+   <div class="text-center max-w-4xl mx-auto fade-in">
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold mb-2 gradient-text" id="hero-name-display">Uppunuthala<br>
+      Swathi</h1>
+    <p class="text-lg md:text-xl text-[#94a3b8] mb-4 font-medium" id="hero-title-display">3rd Year CSE Student @ BVRITH College of Women in Engineering</p>
+    <p class="text-base md:text-lg text-[#64748b] mb-8 max-w-2xl mx-auto" id="hero-desc-display">Passionate about building software, exploring tech innovations, and solving real-world problems.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center"><a href="https://wa.me/917013079281?text=Hello%20Swathi%2C%20I%20saw%20your%20portfolio"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="whatsapp-btn px-8 py-4 rounded-full font-semibold flex items-center gap-2 text-white justify-center">
+
+   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+      <!-- keep your same SVG path -->
+   </svg>
+
+   <span>Connect on WhatsApp</span>
+</a>
+    </div>
+   </div>
+  </section><!-- About Section -->
+  <section id="about" class="min-h-screen flex items-center justify-center px-6 py-24">
+   <div class="max-w-4xl mx-auto text-center fade-in">
+    <h2 class="text-4xl md:text-5xl font-bold mb-12 gradient-text">About Me</h2>
+    <div class="glass-card rounded-3xl p-8 md:p-12">
+     <p class="text-lg md:text-xl leading-relaxed text-[#94a3b8]" id="about-text-display">Hello! I'm Uppunuthala Swathi, a 3rd-year Computer Science Engineering student at BVRITH College of Women in Engineering. I enjoy coding, exploring new technologies, and developing projects that solve practical problems. My goal is to build a strong foundation in software development and contribute to real-world tech solutions.</p>
+    </div>
+   </div>
+  </section><!-- Skills Section -->
+  <section id="skills" class="min-h-screen flex items-center justify-center px-6 py-24">
+   <div class="max-w-6xl mx-auto w-full">
+    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text fade-in">My Skills</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <div class="text-center mb-6">
+       <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center">
+        <svg class="w-8 h-8 text-[#2dd4bf]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-bold text-[#2dd4bf]">Languages</h3>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center"><span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">C</span> <span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">Java</span> <span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">Python</span>
+      </div>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <div class="text-center mb-6">
+       <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center">
+        <svg class="w-8 h-8 text-[#f472b6]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-bold text-[#f472b6]">Web Technologies</h3>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center"><span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">HTML</span> <span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">CSS</span> <span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">JavaScript</span>
+      </div>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <div class="text-center mb-6">
+       <div class="w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center">
+        <svg class="w-8 h-8 text-[#a78bfa]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+       </div>
+       <h3 class="text-2xl font-bold text-[#a78bfa]">Tools</h3>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center"><span class="skill-pill px-4 py-2 rounded-full text-sm font-medium">Git</span>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Projects Section -->
+  <section id="projects" class="min-h-screen flex items-center justify-center px-6 py-24">
+   <div class="max-w-6xl mx-auto w-full">
+    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text fade-in">My Projects</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <h3 class="text-2xl font-bold text-[#2dd4bf] mb-4">Diet Planner</h3>
+      <p class="text-[#94a3b8] mb-6">A full-stack Diet Planner web application built using HTML, CSS, JavaScript (frontend) and Flask with Python (backend) that generates personalized diet plans based on user health goals and preferences. The project is deployed on Microsoft Azure, using Static Web App Hosting for frontend, Azure Web App Service for backend, and MySQL database for storing user and diet data securely.</p>
+      <div class="flex flex-wrap gap-2 mb-6"><span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">HTML</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">CSS</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">JavaScript</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">Flask</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">Python</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">Azure</span>
+      </div><a href="https://github.com/Uppunuthalaswathi/diet_app" target="_blank" rel="noopener noreferrer" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> View Project 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <h3 class="text-2xl font-bold text-[#2dd4bf] mb-4">Weather Forecast App</h3>
+      <p class="text-[#94a3b8] mb-6">Web application to display live weather updates with a clean, responsive interface. Get real-time weather data with an intuitive design that works seamlessly across all devices.</p>
+      <div class="flex flex-wrap gap-2 mb-6"><span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">HTML</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">CSS</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">JavaScript</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">API</span>
+      </div><a href="https://github.com/Uppunuthalaswathi/weather-forecast-app" target="_blank" rel="noopener noreferrer" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> View Project 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <h3 class="text-2xl font-bold text-[#2dd4bf] mb-4">Resume Screening System</h3>
+      <p class="text-[#94a3b8] mb-6">Automates shortlisting and ranking candidates based on resume analysis.</p>
+      <div class="flex flex-wrap gap-2 mb-6"><span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">Python</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">JavaScript</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">HTML</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">CSS</span>
+      </div><a href="#" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> View Project 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <h3 class="text-2xl font-bold text-[#2dd4bf] mb-4">Orphanage Adoption Management</h3>
+      <p class="text-[#94a3b8] mb-6">Digital platform to manage the adoption process efficiently and securely.</p>
+      <div class="flex flex-wrap gap-2 mb-6"><span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">Node.js</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">HTML</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">CSS</span> <span class="skill-pill px-3 py-1 rounded-full text-xs font-medium">JavaScript</span>
+      </div><a href="#" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> View Project 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+    </div>
+   </div>
+  </section><!-- Blog Section -->
+  <section id="blog" class="min-h-screen flex items-center justify-center px-6 py-24">
+   <div class="max-w-6xl mx-auto w-full">
+    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text fade-in">My Blog</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <div class="w-12 h-12 mb-6 rounded-2xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center">
+       <svg class="w-6 h-6 text-[#2dd4bf]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-3">How to Build Your First Web App as a Student</h3>
+      <p class="text-[#94a3b8] mb-6 text-sm">A beginner-friendly guide to creating your first web application with step-by-step instructions.</p><a href="#" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> Read More 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <div class="w-12 h-12 mb-6 rounded-2xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center">
+       <svg class="w-6 h-6 text-[#f472b6]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-3">Tips for Cracking Coding Interviews</h3>
+      <p class="text-[#94a3b8] mb-6 text-sm">Essential strategies and preparation tips to ace your technical interviews at top companies.</p><a href="#" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> Read More 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+     <div class="glass-card rounded-3xl p-8 fade-in">
+      <div class="w-12 h-12 mb-6 rounded-2xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center">
+       <svg class="w-6 h-6 text-[#a78bfa]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+       </svg>
+      </div>
+      <h3 class="text-xl font-bold mb-3">The Power of Open Source for Students</h3>
+      <p class="text-[#94a3b8] mb-6 text-sm">Discover how contributing to open source can boost your skills and career prospects.</p><a href="#" class="text-[#ef4444] font-semibold hover:underline flex items-center gap-2"> Read More 
+       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+       </svg></a>
+     </div>
+    </div>
+   </div>
+  </section>
+  <!-- Contact Section -->
+   <section id="contact" class="min-h-screen flex items-center justify-center px-6 py-24">
+  <div class="max-w-6xl mx-auto w-full">
+    <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center gradient-text fade-in">
+      Contact Me
+    </h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- LEFT SIDE - CONTACT INFO -->
+      <div class="glass-card rounded-3xl p-8 fade-in">
+        <h3 class="text-2xl font-bold mb-6 gradient-text">Get In Touch</h3>
+
+        <div class="space-y-6">
+
+          <div class="flex items-center gap-4">
+            <span class="text-[#e2e8f0] font-semibold">Uppunuthala Swathi</span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <span class="text-[#e2e8f0] break-all">
+              📧 swathiuppunuthala35@gmail.com
+            </span>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <span class="text-[#e2e8f0]">
+              📱 +91 7013079281
+            </span>
+          </div>
+
+          <div class="flex gap-4 pt-4">
+
+  <!-- GitHub -->
+  <a href="https://github.com/UppunuthalaSwathi"
+     target="_blank"
+     class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center text-white hover:scale-110 transition">
+
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.41-4.03-1.41-.55-1.39-1.34-1.76-1.34-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.12-3.17 0 0 1-.32 3.3 1.23a11.4 11.4 0 016 0C17.3 4.6 18.3 4.92 18.3 4.92c.66 1.65.25 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.7.8.58C20.56 21.8 24 17.3 24 12 24 5.37 18.63 0 12 0z"/>
+    </svg>
+
+  </a>
+
+  <!-- LinkedIn -->
+  <a href="https://www.linkedin.com/in/swathi-uppunuthala-469207322"
+     target="_blank"
+     class="w-12 h-12 rounded-xl bg-gradient-to-br from-[#2dd4bf]/20 to-[#f472b6]/20 flex items-center justify-center text-white hover:scale-110 transition">
+
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.95v5.66H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28z"/>
+    </svg>
+
+  </a>
+
+</div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE - CONTACT FORM -->
+      <div class="glass-card rounded-3xl p-8 fade-in">
+  
+        <h3 class="text-2xl font-bold mb-6 gradient-text">Send a Message</h3>
+
+        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="8d82994c-1639-406e-aaf8-779ef406e685">
+
+          <!-- Email Subject -->
+          <input type="hidden" name="subject" value="New Portfolio Message from Swathi Website">
+
+          <!-- Disable captcha (optional) -->
+          <input type="hidden" name="botcheck" value="">
+
+          <div>
+            <label class="block text-sm mb-2">Name</label>
+            <input type="text" name="name" required
+              class="w-full px-4 py-3 rounded-xl text-[#e2e8f0]"
+              placeholder="Your name">
+          </div>
+
+          <div>
+            <label class="block text-sm mb-2">Email</label>
+            <input type="email" name="email" required
+              class="w-full px-4 py-3 rounded-xl text-[#e2e8f0]"
+              placeholder="your@email.com">
+          </div>
+
+          <div>
+            <label class="block text-sm mb-2">Message</label>
+            <textarea name="message" rows="4" required
+              class="w-full px-4 py-3 rounded-xl text-[#e2e8f0] resize-none"
+              placeholder="Your message"></textarea>
+          </div>
+
+          <button type="submit"
+            class="gradient-btn w-full py-4 rounded-xl font-semibold text-white">
+            Send Message
+          </button>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+  
+  <!-- Footer -->
+  <footer class="py-8 px-6 text-center border-t border-white/10">
+   <p class="text-[#64748b]">© 2024 Uppunuthala Swathi. All rights reserved.</p>
+  </footer><!-- Scroll to Top Button --> <button id="scrollTopBtn" class="scroll-top-btn fixed bottom-8 right-8 w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg z-50">
+   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+   </svg></button> <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-24 right-8 glass-card rounded-xl px-6 py-4 transform translate-x-full opacity-0 transition-all duration-300 z-50 max-w-sm">
+   <p id="toastMessage" class="text-sm"></p>
+  </div>
+  <script>
+        // Default configuration
+        const defaultConfig = {
+            hero_name: 'Uppunuthala\nSwathi',
+            hero_title: '3rd Year CSE Student @ BVRITH College of Women in Engineering',
+            hero_description: 'Passionate about building software, exploring tech innovations, and solving real-world problems.',
+            about_text: "Hello! I'm Uppunuthala Swathi, a 3rd-year Computer Science Engineering student at BVRITH College of Women in Engineering. I enjoy coding, exploring new technologies, and developing projects that solve practical problems. My goal is to build a strong foundation in software development and contribute to real-world tech solutions.",
+            contact_email: 'swathiuppunuthala35@gmail.com',
+            contact_phone: '+91 7013079281',
+            contact_whatsapp: '+917013079281',
+            background_color: '#0f172a',
+            surface_color: 'rgba(255,255,255,0.05)',
+            text_color: '#e2e8f0',
+            primary_color: '#2dd4bf',
+            secondary_color: '#f472b6',
+            font_family: 'Poppins',
+            font_size: 16
+        };
+
+        // Create particles and stars
+        function createParticles() {
+            const container = document.getElementById('particles');
+            container.innerHTML = '';
+            
+            // Create stars
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                container.appendChild(star);
+            }
+            
+            // Create floating particles
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 6 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Scroll animations
+        function handleScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+            
+            // Scroll to top button visibility
+            const scrollBtn = document.getElementById('scrollTopBtn');
+            if (window.scrollY > 500) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+            
+            // Active nav link
+            const sections = ['hero', 'about', 'skills', 'projects', 'blog', 'contact'];
+            sections.forEach(sectionId => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const rect = section.getBoundingClientRect();
+                    const navLink = document.querySelector(`a[href="#${sectionId}"]`);
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        document.querySelectorAll('.nav-pill').forEach(l => l.classList.remove('active'));
+                        navLink?.classList.add('active');
+                    }
+                }
+            });
+        }
+
+        // Toast notification
+        function showToast(message, isSuccess = true) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+            toastMessage.textContent = message;
+            toast.style.background = isSuccess ? 'rgba(45, 212, 191, 0.2)' : 'rgba(239, 68, 68, 0.2)';
+            toast.style.borderColor = isSuccess ? 'rgba(45, 212, 191, 0.5)' : 'rgba(239, 68, 68, 0.5)';
+            toast.style.transform = 'translateX(0)';
+            toast.style.opacity = '1';
+            
+            setTimeout(() => {
+                toast.style.transform = 'translateX(100%)';
+                toast.style.opacity = '0';
+            }, 3000);
+        }
+
+        // Update UI based on config
+        async function onConfigChange(config) {
+            const heroNameDisplay = document.getElementById('hero-name-display');
+            const heroTitleDisplay = document.getElementById('hero-title-display');
+            const heroDescDisplay = document.getElementById('hero-desc-display');
+            const aboutTextDisplay = document.getElementById('about-text-display');
+            const emailDisplay = document.getElementById('email-display');
+            const phoneDisplay = document.getElementById('phone-display');
+            
+            // Update text content
+            if (heroNameDisplay) {
+                const name = config.hero_name || defaultConfig.hero_name;
+                heroNameDisplay.innerHTML = name.replace('\n', '<br>');
+            }
+            if (heroTitleDisplay) heroTitleDisplay.textContent = config.hero_title || defaultConfig.hero_title;
+            if (heroDescDisplay) heroDescDisplay.textContent = config.hero_description || defaultConfig.hero_description;
+            if (aboutTextDisplay) aboutTextDisplay.textContent = config.about_text || defaultConfig.about_text;
+            if (emailDisplay) emailDisplay.textContent = config.contact_email || defaultConfig.contact_email;
+            if (phoneDisplay) phoneDisplay.textContent = config.contact_phone || defaultConfig.contact_phone;
+            
+            // Update WhatsApp button
+            const whatsappBtn = document.getElementById('whatsappBtn');
+            if (whatsappBtn) {
+                const whatsappNumber = config.contact_whatsapp || defaultConfig.contact_whatsapp;
+                whatsappBtn.onclick = () => {
+                    const text = encodeURIComponent('Hi Swathi, I would like to connect with you!');
+                    window.open(`https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${text}`, '_blank');
+                };
+            }
+            
+            // Apply font
+            const fontFamily = config.font_family || defaultConfig.font_family;
+            document.body.style.fontFamily = `${fontFamily}, sans-serif`;
+            
+            // Apply font size scaling
+            const baseSize = config.font_size || defaultConfig.font_size;
+            document.documentElement.style.fontSize = `${baseSize}px`;
+        }
+
+        // Map config to capabilities
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => {
+                            config.background_color = value;
+                            window.elementSdk.setConfig({ background_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => {
+                            config.text_color = value;
+                            window.elementSdk.setConfig({ text_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => {
+                            config.primary_color = value;
+                            window.elementSdk.setConfig({ primary_color: value });
+                        }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => {
+                            config.secondary_color = value;
+                            window.elementSdk.setConfig({ secondary_color: value });
+                        }
+                    }
+                ],
+                borderables: [],
+                fontEditable: {
+                    get: () => config.font_family || defaultConfig.font_family,
+                    set: (value) => {
+                        config.font_family = value;
+                        window.elementSdk.setConfig({ font_family: value });
+                    }
+                },
+                fontSizeable: {
+                    get: () => config.font_size || defaultConfig.font_size,
+                    set: (value) => {
+                        config.font_size = value;
+                        window.elementSdk.setConfig({ font_size: value });
+                    }
+                }
+            };
+        }
+
+        // Map to edit panel values
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ['hero_name', config.hero_name || defaultConfig.hero_name],
+                ['hero_title', config.hero_title || defaultConfig.hero_title],
+                ['hero_description', config.hero_description || defaultConfig.hero_description],
+                ['about_text', config.about_text || defaultConfig.about_text],
+                ['contact_email', config.contact_email || defaultConfig.contact_email],
+                ['contact_phone', config.contact_phone || defaultConfig.contact_phone],
+                ['contact_whatsapp', config.contact_whatsapp || defaultConfig.contact_whatsapp]
+            ]);
+        }
+
+        // Initialize
+        async function init() {
+            createParticles();
+            
+            // Initialize Element SDK
+            if (window.elementSdk) {
+                window.elementSdk.init({
+                    defaultConfig,
+                    onConfigChange,
+                    mapToCapabilities,
+                    mapToEditPanelValues
+                });
+            }
+            
+            // Event listeners
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+            
+            // Scroll to top button
+            document.getElementById('scrollTopBtn').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // WhatsApp button handler
+            document.getElementById('whatsappBtn').addEventListener('click', (e) => {
+                const whatsappNumber = defaultConfig.contact_whatsapp.replace(/\D/g, '');
+                const text = encodeURIComponent('Hello Swathi, I saw your portfolio');
+                const href = `https://wa.me/${whatsappNumber}?text=${text}`;
+                window.open(href, '_blank', 'noopener noreferrer');
+            });
+            
+            // Contact form - Send email via EmailJS
+            // Contact Form - Web3Forms
+const form = document.getElementById("contactForm");
+const formMessage = document.getElementById("formMessage");
+const btnText = document.getElementById("btnText");
+const btnLoader = document.getElementById("btnLoader");
+
+form.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    btnText.textContent = "Sending...";
+    btnLoader.classList.remove("hidden");
+
+    const formData = new FormData(form);
+
+    try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            formMessage.classList.remove("hidden");
+            formMessage.classList.remove("text-red-400");
+            formMessage.classList.add("text-green-400");
+            formMessage.textContent = "Message sent successfully!";
+            form.reset();
+        } else {
+            formMessage.classList.remove("hidden");
+            formMessage.classList.remove("text-green-400");
+            formMessage.classList.add("text-red-400");
+            formMessage.textContent = "Failed to send message!";
+        }
+
+    } catch (error) {
+        formMessage.classList.remove("hidden");
+        formMessage.classList.remove("text-green-400");
+        formMessage.classList.add("text-red-400");
+        formMessage.textContent = "Network error. Try again.";
+    }
+
+    btnText.textContent = "Send Message";
+    btnLoader.classList.add("hidden");
+});
+        }
+
+        init();
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9d04c43347b89a7b',t:'MTc3MTQ5MzY0NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
