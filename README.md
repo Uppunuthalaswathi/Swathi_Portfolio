@@ -26,21 +26,47 @@ I am a Final Year B.Tech Computer Science and Engineering student passionate abo
 
 ## Featured Projects
 
-### Smart Bus Tracking & Crowd Monitoring System
+## 1. Electrician Service Booking System
 
-* Developed a smart transportation solution for real-time bus tracking and crowd monitoring.
-* Designed to improve passenger convenience and optimize public transportation services.
+**Tech Stack:** HTML, CSS, JavaScript, Node.js, Express.js, MongoDB Atlas
 
-### ElectroServe
+* Developed a full-stack service booking platform supporting **Customer, Electrician, and Admin** roles with role-based authentication and authorization.
+* Designed and implemented **10+ RESTful APIs** using Express.js for booking management, service tracking, and status updates.
+* Integrated MongoDB Atlas cloud database to manage customer, electrician, and service records through efficient CRUD operations.
 
-* Electrician Booking and Electrical Products E-Commerce Platform.
-* Features electrician booking, location-based service allocation, product purchasing, and customer dashboards.
+---
 
-### AI Resume Screening and Candidate Ranking System
+## 2. Cloud-Based Diet Planner Application
 
-* Built an NLP-based application using Python, TF-IDF, and Streamlit.
-* Automatically compares resumes against job descriptions and ranks candidates based on similarity scores.
-* Supports report generation and downloadable evaluation results.
+**Tech Stack:** Flask, Python, SQL, Microsoft Azure, HTML, CSS, JavaScript
+
+* Developed a cloud-based web application that generates personalized meal recommendations based on user health goals and dietary preferences.
+* Built backend services using Flask, integrated SQL databases, and deployed the application on Microsoft Azure.
+* Implemented end-to-end workflows connecting frontend, backend, and database components.
+
+GitHub: https://github.com/Uppunuthalaswathi/Azure_diet_planner
+
+---
+
+## 3. DSA Visualizer
+
+**Tech Stack:** HTML, CSS, JavaScript, GitHub Pages
+
+* Developed an interactive visualization platform for **sorting algorithms** and **LRU Cache** operations using JavaScript animations.
+* Implemented real-time algorithm execution and step-by-step visual representations to improve learning and debugging.
+* Deployed the application using GitHub Pages and managed version control through Git and GitHub.
+
+Live Demo: https://uppunuthalaswathi.github.io/DSA_Visualiser_project/home.html
+
+---
+
+## 4. Computing Historian AI Agent
+
+**Tech Stack:** Python, Azure AI Foundry, Azure OpenAI, Prompt Engineering
+
+* Developed an AI-powered assistant capable of answering questions related to computing history, programming languages, and technology evolution.
+* Integrated Azure OpenAI models through Azure AI Foundry and applied prompt engineering techniques to improve response quality.
+* Evaluated AI-generated responses through iterative testing and implemented responsible AI practices for safe interactions.
 
 ## Certifications
 
